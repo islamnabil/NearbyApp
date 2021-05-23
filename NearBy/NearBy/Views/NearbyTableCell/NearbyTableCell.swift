@@ -9,15 +9,11 @@ import UIKit
 
 class NearbyTableCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    // MARK:- IBoutlets
+    @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var placeNameLabel: UILabel!
+    @IBOutlet weak var placeeAddressLabel: UILabel!
+    
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }
