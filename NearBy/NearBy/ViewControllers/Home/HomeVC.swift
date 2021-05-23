@@ -30,6 +30,7 @@ class HomeVC: UIViewController {
     /// configureTableView : `delegate`, `dataSource`
     /// and make `separatorStyle` to be none instead of singleLine
     private func configureTableView() {
+        nearbyTableView.register(UINib(nibName: "NearbyTableCell", bundle: nil), forCellReuseIdentifier: "NearbyTableCell")
         nearbyTableView.delegate = self
         nearbyTableView.dataSource = self
         nearbyTableView.separatorStyle = .none
