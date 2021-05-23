@@ -1,8 +1,7 @@
 //
 //  UIExtensions.swift
-//  GitRepo
 //
-//  Created by Islam Elgaafary on 09/05/2021.
+//  Created by Islam Elgaafary on 23/05/2021.
 //
 
 import UIKit
