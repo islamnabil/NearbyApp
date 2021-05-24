@@ -20,15 +20,20 @@ struct NearbyPlacesGroup:Codable {
 }
 
 struct NearbyPlacesItem:Codable {
-    var venue:VenueModel?
+    var place:PlaceModel?
+    
+    enum CodingKeys: String, CodingKey {
+        case place = "venue"
+    }
 }
 
-struct VenueModel:Codable {
+struct PlaceModel:Codable {
     var id:String?
     var name:String?
-    var location:VenueLocationModel?
+    var image:String?
+    var location:PlaceLocationModel?
 }
 
-struct VenueLocationModel:Codable {
-    var formattedAddress:[String]?
+struct PlaceLocationModel:Codable {
+    var address:String?
 }
