@@ -9,22 +9,22 @@ import UIKit
 import CoreLocation
 
 
-class LocationController<VC:UIViewController & CLLocationManagerDelegate> {
+class LocationController {
     private var locationManager = CLLocationManager()
     private var lat:Double?
     private var long:Double?
-    private var viewController:UIViewController
-    private var realTime:Bool
+    private var viewController = UIViewController()
+    private var realTime = false
     
-    init(viewController:VC, realtime:Bool) {
+    private init(){}
+    
+    static var shared = LocationController()
+    
+    
+    func setupLocation(viewController:UIViewController & CLLocationManagerDelegate, realtime:Bool){
         self.viewController = viewController
         self.realTime = realtime
-        setupLocation()
-    }
-    
-    
-    private func setupLocation(){
-        locationManager.delegate = viewController as? CLLocationManagerDelegate
+        locationManager.delegate = viewController
         
         self.locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -34,7 +34,6 @@ class LocationController<VC:UIViewController & CLLocationManagerDelegate> {
                 showEnableLocationServices()
             }
             if CLLocationManager.locationServicesEnabled() {
-                locationManager.delegate = viewController as? CLLocationManagerDelegate
                 requestLocation()
             }
             
@@ -44,8 +43,9 @@ class LocationController<VC:UIViewController & CLLocationManagerDelegate> {
     
     private func requestLocation() {
         
-        // MUST add note here
+        // MUST add note here WHY requestLocation 
         realTime ? locationManager.startMonitoringSignificantLocationChanges(): locationManager.requestLocation()
+       
     }
     
     
@@ -68,3 +68,6 @@ class LocationController<VC:UIViewController & CLLocationManagerDelegate> {
     }
     
 }
+
+
+

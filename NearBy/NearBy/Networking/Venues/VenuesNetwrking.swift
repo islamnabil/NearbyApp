@@ -10,6 +10,7 @@ import Alamofire
 
 enum VenuesNetwrking {
     case exlpore(lat:String, long:String)
+    case venuesPhotos(venueId:String)
 }
 
 extension VenuesNetwrking: TargetType {
@@ -21,12 +22,14 @@ extension VenuesNetwrking: TargetType {
         switch self {
         case .exlpore:
             return "explore"
+        case .venuesPhotos(let venueId):
+            return "\(venueId)/photos"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .exlpore:
+        case .exlpore, .venuesPhotos:
             return .get
         }
     }
@@ -36,11 +39,19 @@ extension VenuesNetwrking: TargetType {
         case .exlpore(let lat, let long):
             return .requestParameters(parameters: [
                 "client_id":Domain.client_id,
-                "secret_id": Domain.client_secret,
+                "client_secret": Domain.client_secret,
                 "v":Domain.v,
-                "lat":lat,
-                "long":long
+                "ll":"\(lat),\(long)"
             ], encoding: URLEncoding.default)
+            
+        case .venuesPhotos:
+            return .requestParameters(parameters: [
+                "client_id":Domain.client_id,
+                "client_secret": Domain.client_secret,
+                "v":Domain.v,
+                "group":"venue"
+            ], encoding: URLEncoding.default)
+        
         }
     }
     
