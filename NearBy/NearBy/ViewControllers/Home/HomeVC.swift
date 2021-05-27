@@ -16,7 +16,7 @@ class HomeVC: UIViewController {
     // MARK:- IBoutlets
     @IBOutlet weak var nearbyTableView: UITableView!
     @IBOutlet weak var modeButton: UIBarButtonItem!
-    var errorView: ErrorView!
+
     
     // MARK:- View LifeCycle
     override func viewDidLoad() {
@@ -54,9 +54,10 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate{
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let  cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NearbyTableCell.self),for: indexPath) as! NearbyTableCell
         let place = nearbyPlaceViewModel.place(forIndexPath: indexPath)
-       // nearbyPlaceViewModel.getPlacePhoto(id: place.id ?? "", index: indexPath.row, table: tableView)
+        nearbyPlaceViewModel.getPlacePhoto(id: place.id ?? "", index: indexPath.row, table: tableView)
+        
+        let  cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NearbyTableCell.self),for: indexPath) as! NearbyTableCell
         cell.configureView(place: place)
         cell.selectionStyle = .none
         return cell
