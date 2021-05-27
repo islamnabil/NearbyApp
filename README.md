@@ -10,7 +10,7 @@
 
 
 ## Screenshots
-<img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/1.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/2.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/3.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/4.png" width="230" height="500">
+<img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/1.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/2.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/3.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/4.png" width="360" height="500">
 
 ## Requirements
 * Xcode 10.2+
