@@ -13,6 +13,7 @@ enum VenuesNetwrking {
     case venuesPhotos(venueId:String)
 }
 
+/// Implement `TargetType` protocol to set `baseURL`, `path`, `method`, `task`, `headers` for each case in `VenuesNetwrking` enum
 extension VenuesNetwrking: TargetType {
     var baseURL: String {
         return "\(Domain.url)"
