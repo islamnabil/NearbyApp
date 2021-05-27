@@ -38,6 +38,7 @@ List of features ready and TODOs for future development
 To-do list:
 * Implement a caching solution for better offline experience (with CoreData).
 * Add Animations to TableView cells.
+* Add Unit-Testing.
 
 ## Contact
 Created by [@islamnabil](https://github.com/islamnabil) - feel free to contact me!
