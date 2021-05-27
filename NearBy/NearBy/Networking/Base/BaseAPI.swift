@@ -42,7 +42,6 @@ class BaseAPI<T: TargetType> {
                 guard let jsonResponse = response.result.value else {
                     // ADD Custom Error
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
-               //     HUD.flash(.label(error.accessibilityValue) , onView: view , delay: 2 , completion: nil)
                     HUD.hide()
                     completion(.failure(error))
                     return
@@ -52,7 +51,6 @@ class BaseAPI<T: TargetType> {
                 guard let theJSONData = try? JSONSerialization.data(withJSONObject: jsonResponse, options: []) else {
                     // ADD Custom Error
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
-                 //   HUD.flash(.label(error.accessibilityValue) , onView: view , delay: 2 , completion: nil)
                     HUD.hide()
                     completion(.failure(error))
                     return
@@ -62,7 +60,6 @@ class BaseAPI<T: TargetType> {
                 guard let responseObj = try? JSONDecoder().decode(M.self, from: theJSONData) else {
                     // ADD Custom Error
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
-                //    HUD.flash(.label(error.accessibilityValue) , onView: view , delay: 2 , completion: nil)
                     HUD.hide()
                     completion(.failure(error))
                     return
@@ -77,12 +74,10 @@ class BaseAPI<T: TargetType> {
                 // Error Parsing for the error message from the BE
                 do {
                     let er = try JSONDecoder().decode(ErrorMsg.self, from: response.data!)
-              //      HUD.flash(.label("\(er.error )") , onView: view , delay: 2 , completion: nil)
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: er.error])
                     HUD.hide()
                     completion(.failure(error))
                 }catch {
-             //       HUD.flash(.label("Something went wrong Please try again later") , onView: view , delay: 2 , completion: nil)
                     HUD.hide()
                 }
                 let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])

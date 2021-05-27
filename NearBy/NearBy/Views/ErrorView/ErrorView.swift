@@ -9,15 +9,6 @@ import UIKit
 
 class ErrorView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-    
-    
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var errorIcon: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!

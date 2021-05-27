@@ -10,6 +10,13 @@ import CoreLocation
 
 class NearbyPlacesViewModel {
     
+    //MARK:-  Singleton
+    private init(){}
+    
+    /// Access the singleton instance
+    static var shared = NearbyPlacesViewModel()
+    
+    
     // MARK:- Properties
     
     /// Places to be displayed in tableView
@@ -28,12 +35,7 @@ class NearbyPlacesViewModel {
     
     /// Show loading indicator (to show for first request ONLY)
     private var showLoading = true
-    
-    
-    // MARK:- Singleton
-    private init(){}
-    static var shared = NearbyPlacesViewModel()
-    
+
     
     // MARK:- Public functions
     

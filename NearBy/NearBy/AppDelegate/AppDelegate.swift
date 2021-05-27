@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore  {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
+            /// Make `RealTime` is the default mode for first app launch
             UserDefaults.standard.set(true, forKey: "realTimeMode")
         }
         
