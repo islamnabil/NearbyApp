@@ -23,15 +23,12 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         configureTableView()
         nearbyPlaceViewModel.setupLocation(forViewCotroller: self, statusInfoFor: modeButton)
-       
-//        errorView = ErrorView(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: 400))
-//        view.addSubview(errorView)
     }
-    
+
     
     // MARK:- IBActions
     @IBAction func modePressed(_ sender: Any) {
-        nearbyPlaceViewModel.changeUpdateMode(realtime: !AppSettings.shared.isRealTimeMode(), statusInfoFor: modeButton)
+        nearbyPlaceViewModel.updateMode(realtime: !AppSettings.shared.isRealTimeMode(), statusInfoFor: modeButton)
     }
     
     //MARK:- Private functions
@@ -82,7 +79,7 @@ extension HomeVC:CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        HUD.flash(.label("Failed to fetch address"), delay: 1.5)
+        ErrorView(errorType: .SomeError, onView: self.view)
     }
     
 }

@@ -16,7 +16,6 @@
 		69E8BD3F265AE1EC00DBD376 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69E8BD3D265AE1EC00DBD376 /* LaunchScreen.storyboard */; };
 		69E8BD4A265AE1EC00DBD376 /* NearByTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD49265AE1EC00DBD376 /* NearByTests.swift */; };
 		69E8BD55265AE1EC00DBD376 /* NearByUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD54265AE1EC00DBD376 /* NearByUITests.swift */; };
-		69E8BD69265AE45700DBD376 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD67265AE45700DBD376 /* UIViewExtension.swift */; };
 		69E8BD6A265AE45700DBD376 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD68265AE45700DBD376 /* UIExtensions.swift */; };
 		69E8BD75265AE57A00DBD376 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD72265AE57A00DBD376 /* BaseAPI.swift */; };
 		69E8BD76265AE57A00DBD376 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD73265AE57A00DBD376 /* TargetType.swift */; };
@@ -72,7 +71,6 @@
 		69E8BD50265AE1EC00DBD376 /* NearByUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NearByUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69E8BD54265AE1EC00DBD376 /* NearByUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByUITests.swift; sourceTree = "<group>"; };
 		69E8BD56265AE1EC00DBD376 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		69E8BD67265AE45700DBD376 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		69E8BD68265AE45700DBD376 /* UIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		69E8BD72265AE57A00DBD376 /* BaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
 		69E8BD73265AE57A00DBD376 /* TargetType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 		69E8BD66265AE45700DBD376 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				69E8BD67265AE45700DBD376 /* UIViewExtension.swift */,
 				69E8BD68265AE45700DBD376 /* UIExtensions.swift */,
 			);
 			path = Extensions;
@@ -588,7 +585,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69E8BD8E265C3CA300DBD376 /* VenuesNetwrking.swift in Sources */,
-				69E8BD69265AE45700DBD376 /* UIViewExtension.swift in Sources */,
 				69E8BD3A265AE1E900DBD376 /* NearBy.xcdatamodeld in Sources */,
 				69E8BD89265C395A00DBD376 /* AppSettings.swift in Sources */,
 				69E8BD6A265AE45700DBD376 /* UIExtensions.swift in Sources */,

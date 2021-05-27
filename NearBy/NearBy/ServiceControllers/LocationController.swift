@@ -61,6 +61,7 @@ class LocationController {
         }))
         
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (_) in
+            ErrorView(errorType: .NoDataFound, onView: self.viewController.view)
             self.viewController.dismiss(animated: true, completion: nil)
         }))
         
