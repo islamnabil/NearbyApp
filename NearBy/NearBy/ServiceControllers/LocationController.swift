@@ -34,16 +34,16 @@ class LocationController {
                 showEnableLocationServices()
             }
             if CLLocationManager.locationServicesEnabled() {
-                requestLocation()
+                requestLocation(realTime: realtime)
             }
             
         }
     }
     
     
-    private func requestLocation() {
+     func requestLocation(realTime:Bool) {
         
-        // MUST add note here WHY requestLocation 
+        // MUST add note here WHY requestLocation
         realTime ? locationManager.startMonitoringSignificantLocationChanges(): locationManager.requestLocation()
        
     }

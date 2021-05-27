@@ -39,6 +39,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="modeButton" destination="stL-q3-N7g" id="snc-5Z-rlN"/>
                         <outlet property="nearbyTableView" destination="LgD-Zh-8ob" id="Myz-Pz-HCa"/>
                     </connections>
                 </viewController>

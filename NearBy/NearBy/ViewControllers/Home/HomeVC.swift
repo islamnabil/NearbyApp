@@ -12,22 +12,22 @@ import PKHUD
 class HomeVC: UIViewController {
     //MARK:- Properties
     var nearbyPlaceViewModel = NearbyPlacesViewModel.shared
-    var locationController = LocationController.shared
     
     // MARK:- IBoutlets
     @IBOutlet weak var nearbyTableView: UITableView!
+    @IBOutlet weak var modeButton: UIBarButtonItem!
     
     // MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        locationController.setupLocation(viewController: self, realtime: true)
+        nearbyPlaceViewModel.setupLocation(forViewCotroller: self, statusInfoFor: modeButton)
     }
     
     
     // MARK:- IBActions
     @IBAction func modePressed(_ sender: Any) {
-        
+        nearbyPlaceViewModel.changeUpdateMode(realtime: !AppSettings.shared.isRealTimeMode(), statusInfoFor: modeButton)
     }
     
     //MARK:- Private functions
@@ -41,7 +41,7 @@ class HomeVC: UIViewController {
         nearbyTableView.separatorStyle = .none
     }
 
-    
+
 }
 
 // MARK: - UITableView Delegate and DataSource
@@ -55,7 +55,7 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let  cell = tableView.dequeueReusableCell(withIdentifier: String(describing: NearbyTableCell.self),for: indexPath) as! NearbyTableCell
         let place = nearbyPlaceViewModel.place(forIndexPath: indexPath)
-        nearbyPlaceViewModel.getPlacePhoto(id: place.id ?? "", index: indexPath.row, table: tableView)
+       // nearbyPlaceViewModel.getPlacePhoto(id: place.id ?? "", index: indexPath.row, table: tableView)
         cell.configureView(place: place)
         cell.selectionStyle = .none
         return cell
@@ -74,7 +74,6 @@ extension HomeVC:CLLocationManagerDelegate {
         if let location = locations.first {
             let coordinate = location.coordinate
             nearbyPlaceViewModel.getPlaces(lat: coordinate.latitude, long: coordinate.longitude, tableView: nearbyTableView)
-            
         }
     }
     

@@ -6,40 +6,46 @@
 //
 
 import UIKit
+import CoreLocation
 
 class NearbyPlacesViewModel {
     
     // MARK:- Properties
     private var nearbyPlaces = [PlaceModel]()
-    private var realTime:Bool = AppSettings.shared.isRealTimeMode()
-    private let api:VenuesAPIProtocol = VenuesAPI()
     private var placesImages = [String:String]()
-    
-    private init(){}
-    
-    static var shared = NearbyPlacesViewModel()
+    private let api:VenuesAPIProtocol = VenuesAPI()
     
     var placesCount:Int {
         return nearbyPlaces.count
     }
     
+    // MARK:- Singleton
+    private init(){}
+    static var shared = NearbyPlacesViewModel()
     
-    func changeUpdateMode(realtime:Bool) {
-        self.realTime = realtime
-        AppSettings.shared.saveUpdateMode(realtime: realtime)
+    
+    // MARK:- Public functions
+    func setupLocation(forViewCotroller vc:UIViewController & CLLocationManagerDelegate, statusInfoFor button:UIBarButtonItem? = nil)  {
+        LocationController.shared.setupLocation(viewController: vc, realtime: AppSettings.shared.isRealTimeMode(statusInfoFor: button))
+    }
+    
+    func changeUpdateMode(realtime:Bool, statusInfoFor button:UIBarButtonItem? = nil) {
+        AppSettings.shared.updateMode(realtime: realtime,statusInfoFor: button)
     }
     
     
     func getPlaces(lat:Double, long:Double, tableView:UITableView) {
+        nearbyPlaces.removeAll()
         getPlacesAPI(lat: lat, long: long, tableView: tableView)
     }
-    
     
     
     func place(forIndexPath indexPath:IndexPath) -> PlaceModel {
         return nearbyPlaces[indexPath.row]
     }
     
+    
+    // MARK:- Private functions
     private func formatImageLink(prefix:String,size:String ,suffix:String) -> String {
         return "\(prefix)\(size)x\(size)\(suffix)"
     }
@@ -74,7 +80,6 @@ extension NearbyPlacesViewModel {
     
     func getPlacePhoto(id:String, index:Int, table:UITableView){
         var imageLink = String()
-        
         if placesImages[id] != nil {
             return
         }else {
@@ -94,7 +99,6 @@ extension NearbyPlacesViewModel {
                         self.nearbyPlaces[index].image = "imageLink"
                         self.placesImages[id] = "imagelink"
                         table.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                        
                     }
                 }
             }
