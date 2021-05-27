@@ -1,5 +1,5 @@
 # NearBy App
->NearBy App is a mini app that you use to A mobile app for displaying realtime nearby places around you from [Foursquare](https://developer.foursquare.com/docs/places-api/).
+>NearBy App is a mini app that you use to display realtime nearby places around you from [Foursquare](https://developer.foursquare.com/docs/places-api/).
 
 ## Table of contents
 * [Screenshots](#screenshots)
@@ -10,7 +10,7 @@
 
 
 ## Screenshots
-
+<img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/1.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/2.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/3.png" width="230" height="500"> <img src="https://github.com/islamnabil/NearbyApp/blob/main/ScreenShots/4.png" width="230" height="500">
 
 ## Requirements
 * Xcode 10.2+
