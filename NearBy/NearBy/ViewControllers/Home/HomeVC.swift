@@ -16,12 +16,16 @@ class HomeVC: UIViewController {
     // MARK:- IBoutlets
     @IBOutlet weak var nearbyTableView: UITableView!
     @IBOutlet weak var modeButton: UIBarButtonItem!
+    var errorView: ErrorView!
     
     // MARK:- View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         nearbyPlaceViewModel.setupLocation(forViewCotroller: self, statusInfoFor: modeButton)
+       
+//        errorView = ErrorView(frame: CGRect(x: 0, y: 20, width: view.bounds.width, height: 400))
+//        view.addSubview(errorView)
     }
     
     
@@ -73,7 +77,7 @@ extension HomeVC:CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             let coordinate = location.coordinate
-            nearbyPlaceViewModel.getPlaces(lat: coordinate.latitude, long: coordinate.longitude, tableView: nearbyTableView)
+           nearbyPlaceViewModel.getPlaces(lat: coordinate.latitude, long: coordinate.longitude, tableView: nearbyTableView)
         }
     }
     

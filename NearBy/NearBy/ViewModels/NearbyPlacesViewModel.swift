@@ -59,18 +59,26 @@ class NearbyPlacesViewModel {
 extension NearbyPlacesViewModel {
     private func getPlacesAPI(lat:Double, long:Double, tableView:UITableView) {
         api.explore(lat: lat, long:long, showLoading: showLoading) { (result) in
+            self.showLoading = false
+            
             switch result {
             case .success(let resposnse):
+                
                 resposnse.response?.groups?.forEach({ group in
                     group.items?.forEach({ item in
                         self.nearbyPlaces.append(item.place ?? PlaceModel())
                     })
                 })
-                self.showLoading = false
-                tableView.reloadData()
+                
+                if self.nearbyPlaces.count == 0 {
+                    ErrorView(errorType: .NoDataFound, onView: tableView)
+                }else {
+                    tableView.reloadData()
+                }
                 
             case .failure(let error):
                 /// GET from caching for `offline` mode
+                ErrorView(errorType: .SomeError, onView: tableView)
                 print(error.userInfo[NSLocalizedDescriptionKey] as? String ?? "")
             }
             

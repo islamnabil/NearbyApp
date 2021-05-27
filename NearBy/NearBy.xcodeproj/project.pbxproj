@@ -31,6 +31,8 @@
 		69E8BD8C265C3C9800DBD376 /* VenuesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD8B265C3C9800DBD376 /* VenuesAPI.swift */; };
 		69E8BD8E265C3CA300DBD376 /* VenuesNetwrking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD8D265C3CA300DBD376 /* VenuesNetwrking.swift */; };
 		69E8BD90265EC2A900DBD376 /* VenuePhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD8F265EC2A900DBD376 /* VenuePhotosModel.swift */; };
+		69E8BD93265FBCF700DBD376 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69E8BD92265FBCF700DBD376 /* ErrorView.xib */; };
+		69E8BD95265FBD0600DBD376 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69E8BD94265FBD0600DBD376 /* ErrorView.swift */; };
 		98059E2FAC532A73056F553E /* Pods_NearBy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8F4EF98C89F8F3CBAE24A6 /* Pods_NearBy.framework */; };
 		ED81FB42A82CFCCB7E58F888 /* Pods_NearByTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84F586A794BFA8F31BE27C /* Pods_NearByTests.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +87,8 @@
 		69E8BD8B265C3C9800DBD376 /* VenuesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesAPI.swift; sourceTree = "<group>"; };
 		69E8BD8D265C3CA300DBD376 /* VenuesNetwrking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesNetwrking.swift; sourceTree = "<group>"; };
 		69E8BD8F265EC2A900DBD376 /* VenuePhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuePhotosModel.swift; sourceTree = "<group>"; };
+		69E8BD92265FBCF700DBD376 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		69E8BD94265FBD0600DBD376 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8B24E5492C3D920BA116576C /* Pods-NearBy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearBy.debug.xcconfig"; path = "Target Support Files/Pods-NearBy/Pods-NearBy.debug.xcconfig"; sourceTree = "<group>"; };
 		AA8F4EF98C89F8F3CBAE24A6 /* Pods_NearBy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearBy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2BDBDA9A61461CF19E74F5 /* Pods-NearBy-NearByUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearBy-NearByUITests.release.xcconfig"; path = "Target Support Files/Pods-NearBy-NearByUITests/Pods-NearBy-NearByUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -271,6 +275,7 @@
 		69E8BD70265AE49B00DBD376 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				69E8BD91265FBCC500DBD376 /* ErrorView */,
 				69E8BD7B265AEB8F00DBD376 /* NearbyTableCell */,
 			);
 			path = Views;
@@ -318,6 +323,15 @@
 				69E8BD8D265C3CA300DBD376 /* VenuesNetwrking.swift */,
 			);
 			path = Venues;
+			sourceTree = "<group>";
+		};
+		69E8BD91265FBCC500DBD376 /* ErrorView */ = {
+			isa = PBXGroup;
+			children = (
+				69E8BD92265FBCF700DBD376 /* ErrorView.xib */,
+				69E8BD94265FBD0600DBD376 /* ErrorView.swift */,
+			);
+			path = ErrorView;
 			sourceTree = "<group>";
 		};
 		CF2652D639A02CC7AAFD9993 /* Pods */ = {
@@ -445,6 +459,7 @@
 				69E8BD7F265AEBAF00DBD376 /* NearbyTableCell.xib in Resources */,
 				69E8BD3C265AE1EC00DBD376 /* Assets.xcassets in Resources */,
 				69E8BD37265AE1E900DBD376 /* Main.storyboard in Resources */,
+				69E8BD93265FBCF700DBD376 /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,6 +594,7 @@
 				69E8BD6A265AE45700DBD376 /* UIExtensions.swift in Sources */,
 				69E8BD85265B03AE00DBD376 /* NearbyPlacesViewModel.swift in Sources */,
 				69E8BD7E265AEBAF00DBD376 /* NearbyTableCell.swift in Sources */,
+				69E8BD95265FBD0600DBD376 /* ErrorView.swift in Sources */,
 				69E8BD7A265AE9FB00DBD376 /* HomeVC.swift in Sources */,
 				69E8BD8C265C3C9800DBD376 /* VenuesAPI.swift in Sources */,
 				69E8BD90265EC2A900DBD376 /* VenuePhotosModel.swift in Sources */,
