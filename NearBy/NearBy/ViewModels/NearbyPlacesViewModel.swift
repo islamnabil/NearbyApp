@@ -14,6 +14,7 @@ class NearbyPlacesViewModel {
     private var nearbyPlaces = [PlaceModel]()
     private var placesImages = [String:String]()
     private let api:VenuesAPIProtocol = VenuesAPI()
+    private var showLoading = true
     
     var placesCount:Int {
         return nearbyPlaces.count
@@ -57,7 +58,7 @@ class NearbyPlacesViewModel {
 //MARK:- APIs
 extension NearbyPlacesViewModel {
     private func getPlacesAPI(lat:Double, long:Double, tableView:UITableView) {
-        api.explore(lat: lat, long:long, view:tableView.superview ?? UIView()) { (result) in
+        api.explore(lat: lat, long:long, showLoading: showLoading) { (result) in
             switch result {
             case .success(let resposnse):
                 resposnse.response?.groups?.forEach({ group in
@@ -65,7 +66,7 @@ extension NearbyPlacesViewModel {
                         self.nearbyPlaces.append(item.place ?? PlaceModel())
                     })
                 })
-                
+                self.showLoading = false
                 tableView.reloadData()
                 
             case .failure(let error):

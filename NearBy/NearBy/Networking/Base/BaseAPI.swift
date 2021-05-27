@@ -12,22 +12,25 @@ import PKHUD
 class BaseAPI<T: TargetType> {
     
     // MARK:- Fetch Data
-    func fetchData<M: Decodable>(target: T, responseClass: M.Type,completion:@escaping (Swift.Result<M,NSError>) -> Void) {
+    func fetchData<M: Decodable>(target: T, responseClass: M.Type, showLoading:Bool = false, completion:@escaping (Swift.Result<M,NSError>) -> Void) {
         
-       // HUD.show(.progress)
+        if showLoading {
+            HUD.show(.progress)
+        }
+       
         
         let method = Alamofire.HTTPMethod(rawValue: target.method.rawValue)!
         let headers = Alamofire.HTTPHeaders(dictionaryLiteral: ("Accept", target.headers!["Accept"]!))
         let params = buildParams(task: target.task)
        
-        print(target.baseURL + target.path)
-        print(params)
+
         
         Alamofire.request(target.baseURL + target.path, method: method, parameters: params.0, encoding: params.1, headers: headers).responseJSON { (response) in
             
             guard let statusCode = response.response?.statusCode else {
                 // ADD Custom Error
                 let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
+                HUD.hide()
                 completion(.failure(error))
                 return
             }
@@ -40,7 +43,7 @@ class BaseAPI<T: TargetType> {
                     // ADD Custom Error
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
                //     HUD.flash(.label(error.accessibilityValue) , onView: view , delay: 2 , completion: nil)
-                    
+                    HUD.hide()
                     completion(.failure(error))
                     return
                 }
@@ -50,6 +53,7 @@ class BaseAPI<T: TargetType> {
                     // ADD Custom Error
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
                  //   HUD.flash(.label(error.accessibilityValue) , onView: view , delay: 2 , completion: nil)
+                    HUD.hide()
                     completion(.failure(error))
                     return
                 }
@@ -59,6 +63,7 @@ class BaseAPI<T: TargetType> {
                     // ADD Custom Error
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
                 //    HUD.flash(.label(error.accessibilityValue) , onView: view , delay: 2 , completion: nil)
+                    HUD.hide()
                     completion(.failure(error))
                     return
                 }
@@ -74,9 +79,11 @@ class BaseAPI<T: TargetType> {
                     let er = try JSONDecoder().decode(ErrorMsg.self, from: response.data!)
               //      HUD.flash(.label("\(er.error )") , onView: view , delay: 2 , completion: nil)
                     let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: er.error])
+                    HUD.hide()
                     completion(.failure(error))
                 }catch {
              //       HUD.flash(.label("Something went wrong Please try again later") , onView: view , delay: 2 , completion: nil)
+                    HUD.hide()
                 }
                 let error = NSError(domain: target.baseURL, code: 0, userInfo: [NSLocalizedDescriptionKey: ErrorMessage.genericError])
                 completion(.failure(error))

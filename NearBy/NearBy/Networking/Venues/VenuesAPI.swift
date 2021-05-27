@@ -8,14 +8,14 @@
 import UIKit
 
 protocol VenuesAPIProtocol {
-    func explore(lat:Double, long:Double,view:UIView,completion: @escaping (Result<NearbyPlacesModel, NSError>) -> Void)
+    func explore(lat:Double, long:Double,showLoading:Bool,completion: @escaping (Result<NearbyPlacesModel, NSError>) -> Void)
     func venuesPhotos(venueId:String,completion: @escaping (Result<VenuePhotosModel, NSError>) -> Void)
 
 }
 
 class VenuesAPI: BaseAPI<VenuesNetwrking>, VenuesAPIProtocol {
-    func explore(lat: Double, long: Double, view: UIView, completion: @escaping (Result<NearbyPlacesModel, NSError>) -> Void) {
-        fetchData(target: .exlpore(lat: "\(lat)", long: "\(long)"), responseClass: NearbyPlacesModel.self) { (result) in
+    func explore(lat: Double, long: Double, showLoading:Bool = false, completion: @escaping (Result<NearbyPlacesModel, NSError>) -> Void) {
+        fetchData(target: .exlpore(lat: "\(lat)", long: "\(long)"), responseClass: NearbyPlacesModel.self, showLoading: showLoading) { (result) in
             completion(result)
         }
     }
